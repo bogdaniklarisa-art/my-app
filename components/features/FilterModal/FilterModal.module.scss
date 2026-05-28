@@ -1,0 +1,70 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+}
+
+.modal {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 8px;
+  background: $color-white;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-modal;
+  padding: $spacing-lg;
+  width: 300px;
+  z-index: 301;
+
+  @include mobile {
+    width: 280px;
+  }
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.actions {
+  @include flex($align: center, $justify: space-between, $gap: $spacing-md);
+  margin-top: $spacing-lg;
+}
+
+.resetBtn {
+  flex: 1;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid $color-text-body;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-body;
+  cursor: pointer;
+  transition: background $transition-fast;
+
+  &:hover {
+    background: $color-navy-light;
+  }
+}
+
+.filterBtn {
+  flex: 1;
+  padding: 10px;
+  background: $color-primary;
+  border: 1px solid $color-primary;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-white;
+  cursor: pointer;
+  transition: background $transition-fast;
+
+  &:hover {
+    background: $color-primary-dark;
+  }
+}

@@ -1,0 +1,25 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.layout {
+  min-height: 100vh;
+  background: $color-bg;
+}
+
+.main {
+  padding-top: $navbar-height;
+  margin-left: $sidebar-width;
+  min-height: 100vh;
+
+  @include below-desktop {
+    margin-left: 0;
+  }
+}
+
+.content {
+  padding: $spacing-xl;
+
+  @include mobile {
+    padding: $spacing-md;
+  }
+}

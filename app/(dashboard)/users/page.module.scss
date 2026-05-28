@@ -1,0 +1,21 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.page {
+  // inherits padding from DashboardLayout
+}
+
+.pageTitle {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-xl;
+}
+
+.errorState {
+  @include card;
+  padding: $spacing-2xl;
+  text-align: center;
+  color: $color-blacklisted-text;
+  font-size: $font-size-sm;
+}

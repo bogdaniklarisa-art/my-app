@@ -1,0 +1,79 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  padding: 12px 24px;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  font-family: $font-family;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background $transition-fast, color $transition-fast, border-color $transition-fast;
+  white-space: nowrap;
+  @include focus-ring;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.primary {
+  background: $color-primary;
+  color: $color-white;
+  border-color: $color-primary;
+
+  &:hover:not(:disabled) {
+    background: $color-primary-dark;
+    border-color: $color-primary-dark;
+  }
+}
+
+.outline {
+  background: transparent;
+  color: $color-primary;
+  border-color: $color-primary;
+
+  &:hover:not(:disabled) {
+    background: rgba($color-primary, 0.04);
+  }
+}
+
+.danger {
+  background: transparent;
+  color: $color-blacklisted-text;
+  border-color: $color-blacklisted-text;
+
+  &:hover:not(:disabled) {
+    background: $color-blacklisted-bg;
+  }
+}
+
+.ghost {
+  background: transparent;
+  color: $color-text-body;
+  border-color: transparent;
+
+  &:hover:not(:disabled) {
+    background: $color-navy-light;
+  }
+}
+
+.sm {
+  padding: 8px 16px;
+  font-size: $font-size-xs;
+}
+
+.lg {
+  padding: 16px 32px;
+  font-size: $font-size-base;
+}
+
+.fullWidth {
+  width: 100%;
+}

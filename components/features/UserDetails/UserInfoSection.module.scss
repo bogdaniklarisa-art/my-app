@@ -1,0 +1,85 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.card {
+  @include card;
+  padding: $spacing-xl;
+  margin-top: $spacing-lg;
+}
+
+.section {
+  margin-bottom: $spacing-xl;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.sectionTitle {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-lg;
+  padding-bottom: $spacing-sm;
+  border-bottom: 1px solid rgba(33, 63, 125, 0.06);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: $spacing-lg;
+
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-md;
+  }
+}
+
+.gridWide {
+  grid-template-columns: repeat(4, 1fr);
+
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fieldLabel {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: rgba(84, 95, 125, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.fieldValue {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-body;
+  word-break: break-word;
+}
+
+.guarantorBlock {
+  padding-top: $spacing-lg;
+  border-top: 1px solid rgba(33, 63, 125, 0.06);
+  margin-top: $spacing-lg;
+
+  &:first-of-type {
+    padding-top: 0;
+    border-top: none;
+    margin-top: 0;
+  }
+}

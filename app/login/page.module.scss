@@ -1,0 +1,109 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.left {
+  background: $color-navy;
+  @include flex-center;
+  flex-direction: column;
+  padding: $spacing-2xl;
+  position: relative;
+  overflow: hidden;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.logoWrap {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.illustration {
+  width: 100%;
+  max-width: 420px;
+  height: auto !important;
+  object-fit: contain;
+}
+
+.right {
+  @include flex-center;
+  padding: $spacing-2xl;
+  background: $color-white;
+
+  @include mobile {
+    padding: $spacing-xl $spacing-md;
+    align-items: flex-start;
+    padding-top: $spacing-2xl;
+  }
+}
+
+.form {
+  width: 100%;
+  max-width: 400px;
+}
+
+.mobileLogo {
+  display: none;
+  margin-bottom: $spacing-2xl;
+
+  @include mobile {
+    display: block;
+  }
+}
+
+.heading {
+  font-size: 2.25rem;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-sm;
+}
+
+.subheading {
+  font-size: $font-size-base;
+  color: $color-text-body;
+  margin-bottom: $spacing-2xl;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-md;
+}
+
+.forgotLink {
+  display: block;
+  text-align: right;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: $spacing-xl;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.error {
+  padding: $spacing-sm $spacing-md;
+  background: $color-blacklisted-bg;
+  color: $color-blacklisted-text;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-sm;
+  margin-bottom: $spacing-md;
+}

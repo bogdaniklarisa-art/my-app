@@ -1,0 +1,162 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.wrap {
+  @include card;
+  overflow: hidden;
+}
+
+.tableScroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+.thead {
+  th {
+    padding: 16px 20px;
+    text-align: left;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semibold;
+    color: $color-text-body;
+    white-space: nowrap;
+    border-bottom: 1px solid rgba(33, 63, 125, 0.06);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+}
+
+.thInner {
+  @include flex($align: center, $gap: 6px);
+  cursor: pointer;
+  user-select: none;
+
+  &:hover .filterIcon {
+    opacity: 1;
+  }
+}
+
+.filterIcon {
+  width: 14px;
+  height: 14px;
+  opacity: 0.5;
+  flex-shrink: 0;
+  transition: opacity $transition-fast;
+}
+
+.filterWrap {
+  position: relative;
+}
+
+.tbody {
+  tr {
+    border-bottom: 1px solid rgba(33, 63, 125, 0.06);
+    transition: background $transition-fast;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background: rgba($color-primary, 0.02);
+    }
+  }
+
+  td {
+    padding: 16px 20px;
+    font-size: $font-size-sm;
+    color: $color-text-body;
+    vertical-align: middle;
+  }
+}
+
+.actionsCell {
+  position: relative;
+}
+
+.moreBtn {
+  @include button-reset;
+  @include flex-center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: $color-text-body;
+  transition: background $transition-fast;
+  @include focus-ring;
+
+  &:hover {
+    background: $color-navy-light;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.dropdown {
+  position: absolute;
+  right: 8px;
+  top: calc(100% - 8px);
+  background: $color-white;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-dropdown;
+  z-index: 50;
+  min-width: 160px;
+  overflow: hidden;
+}
+
+.dropdownItem {
+  @include flex($align: center, $gap: $spacing-sm);
+  width: 100%;
+  padding: 12px 16px;
+  font-size: $font-size-sm;
+  color: $color-text-body;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background $transition-fast;
+  text-decoration: none;
+
+  svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    background: $color-navy-light;
+  }
+}
+
+.emptyState {
+  padding: $spacing-2xl;
+  text-align: center;
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+}
+
+.skeletonRow {
+  td {
+    padding: 16px 20px;
+  }
+}
+
+.skeletonCell {
+  height: 14px;
+  border-radius: $border-radius-sm;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

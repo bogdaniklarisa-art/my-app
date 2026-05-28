@@ -1,0 +1,130 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: $sidebar-width;
+  height: 100vh;
+  background: $color-white;
+  box-shadow: 3px 0 20px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  z-index: 200;
+  transition: transform $transition-base;
+
+  @include below-desktop {
+    transform: translateX(-100%);
+
+    &.open {
+      transform: translateX(0);
+    }
+  }
+}
+
+.logo {
+  padding: 40px 30px 32px;
+  display: block;
+  flex-shrink: 0;
+
+  img {
+    width: 144px;
+    height: auto;
+  }
+}
+
+.orgSwitch {
+  @include flex($align: center, $gap: $spacing-sm);
+  padding: 0 30px 24px;
+  cursor: pointer;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-body;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    color: $color-text-body;
+  }
+
+  .chevron {
+    width: 10px;
+    height: 10px;
+    margin-left: auto;
+  }
+}
+
+.nav {
+  flex: 1;
+  padding-bottom: $spacing-2xl;
+}
+
+.section {
+  margin-bottom: $spacing-lg;
+}
+
+.sectionLabel {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: rgba(84, 95, 125, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0 30px;
+  margin-bottom: $spacing-sm;
+}
+
+.navItem {
+  @include flex($align: center, $gap: 10px);
+  padding: 12px 30px;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-body;
+  cursor: pointer;
+  transition: background $transition-fast, color $transition-fast;
+  border-left: 3px solid transparent;
+  text-decoration: none;
+  display: flex;
+
+  .icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    opacity: 0.6;
+  }
+
+  &:hover {
+    background: rgba($color-primary, 0.04);
+    color: $color-navy;
+
+    .icon {
+      opacity: 1;
+    }
+  }
+
+  &.active {
+    border-left-color: $color-primary;
+    background: rgba($color-primary, 0.06);
+    color: $color-navy;
+    font-weight: $font-weight-semibold;
+
+    .icon {
+      opacity: 1;
+    }
+  }
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 199;
+
+  @include below-desktop {
+    &.visible {
+      display: block;
+    }
+  }
+}

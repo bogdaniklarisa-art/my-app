@@ -1,0 +1,49 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.page {
+  // inherits padding from DashboardLayout
+}
+
+.topBar {
+  @include flex-between;
+  margin-bottom: $spacing-xl;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+}
+
+.backLink {
+  @include flex($align: center, $gap: $spacing-sm);
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-body;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-navy;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.actions {
+  @include flex($align: center, $gap: $spacing-md);
+}
+
+.pageTitle {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.notFound {
+  @include card;
+  padding: $spacing-2xl;
+  text-align: center;
+  color: $color-text-muted;
+  font-size: $font-size-base;
+}

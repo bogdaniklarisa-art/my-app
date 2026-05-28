@@ -1,0 +1,33 @@
+@use "../../../styles/variables" as *;
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  border-radius: $border-radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-normal;
+  white-space: nowrap;
+  text-transform: capitalize;
+}
+
+.active {
+  background: $color-active-bg;
+  color: $color-active-text;
+}
+
+.inactive {
+  background: $color-inactive-bg;
+  color: $color-inactive-text;
+}
+
+.pending {
+  background: $color-pending-bg;
+  color: $color-pending-text;
+}
+
+.blacklisted {
+  background: $color-blacklisted-bg;
+  color: $color-blacklisted-text;
+}

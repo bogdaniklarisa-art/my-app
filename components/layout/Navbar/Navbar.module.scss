@@ -1,0 +1,186 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: $sidebar-width;
+  right: 0;
+  height: $navbar-height;
+  background: $color-white;
+  box-shadow: 0 1px 0 rgba(33, 63, 125, 0.06);
+  @include flex-between;
+  padding: 0 $spacing-xl;
+  z-index: 100;
+
+  @include below-desktop {
+    left: 0;
+    padding: 0 $spacing-md;
+  }
+}
+
+.left {
+  @include flex($align: center, $gap: $spacing-md);
+}
+
+.hamburger {
+  display: none;
+  @include button-reset;
+  @include flex-center;
+  width: 32px;
+  height: 32px;
+  color: $color-text-body;
+  @include focus-ring;
+
+  @include below-desktop {
+    display: flex;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.searchWrap {
+  position: relative;
+  @include flex($align: center);
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.searchInput {
+  width: 400px;
+  padding: 10px 16px;
+  padding-right: 56px;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  background: $color-white;
+  outline: none;
+  transition: border-color $transition-fast;
+
+  @include tablet {
+    width: 240px;
+  }
+
+  &::placeholder {
+    color: rgba(84, 95, 125, 0.5);
+  }
+
+  &:focus {
+    border-color: $color-primary;
+  }
+}
+
+.searchBtn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 56px;
+  @include flex-center;
+  background: $color-primary;
+  border: none;
+  border-radius: 0 $border-radius-sm $border-radius-sm 0;
+  cursor: pointer;
+  transition: background $transition-fast;
+
+  &:hover {
+    background: $color-primary-dark;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    color: $color-white;
+  }
+}
+
+.right {
+  @include flex($align: center, $gap: $spacing-lg);
+}
+
+.docsLink {
+  font-size: $font-size-sm;
+  color: $color-text-body;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-navy;
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.notifications {
+  @include button-reset;
+  position: relative;
+  @include flex-center;
+  width: 36px;
+  height: 36px;
+  @include focus-ring;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    color: $color-text-body;
+  }
+}
+
+.notifDot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  background: #f55f44;
+  border-radius: 50%;
+  border: 2px solid $color-white;
+}
+
+.user {
+  @include flex($align: center, $gap: $spacing-sm);
+  cursor: pointer;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: $color-primary;
+  @include flex-center;
+  color: $color-white;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.userName {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.chevron {
+  width: 12px;
+  height: 12px;
+  color: $color-text-body;
+
+  @include mobile {
+    display: none;
+  }
+}

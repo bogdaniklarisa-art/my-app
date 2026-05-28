@@ -1,0 +1,145 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.card {
+  @include card;
+  padding: $spacing-xl;
+  margin-bottom: 0;
+}
+
+.topRow {
+  @include flex($align: center, $gap: $spacing-xl);
+  padding-bottom: $spacing-xl;
+  border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+  flex-wrap: wrap;
+  gap: $spacing-lg;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.avatarWrap {
+  @include flex($align: center, $gap: $spacing-md);
+  flex-shrink: 0;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: $color-navy-light;
+  @include flex-center;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-body;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.nameBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.name {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+}
+
+.userId {
+  font-size: $font-size-sm;
+  color: $color-text-body;
+}
+
+.divider {
+  width: 1px;
+  height: 72px;
+  background: rgba(33, 63, 125, 0.1);
+  flex-shrink: 0;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.tierBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tierLabel {
+  font-size: $font-size-sm;
+  color: $color-text-body;
+}
+
+.stars {
+  @include flex($align: center, $gap: 4px);
+}
+
+.star {
+  width: 16px;
+  height: 16px;
+  color: #e9b200;
+}
+
+.starEmpty {
+  width: 16px;
+  height: 16px;
+  color: $color-border;
+}
+
+.balanceBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.balance {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+}
+
+.bankInfo {
+  font-size: $font-size-sm;
+  color: $color-text-body;
+}
+
+.tabs {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-top: $spacing-lg;
+
+  &::-webkit-scrollbar {
+    height: 2px;
+  }
+}
+
+.tab {
+  @include button-reset;
+  padding: 10px 20px;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-body;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: color $transition-fast, border-color $transition-fast;
+  @include focus-ring;
+
+  &:hover {
+    color: $color-navy;
+  }
+
+  &.activeTab {
+    color: $color-navy;
+    border-bottom-color: $color-primary;
+    font-weight: $font-weight-semibold;
+  }
+}
